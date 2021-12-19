@@ -36,7 +36,7 @@ sudo ln -s /etc/nginx/sites-available/test.es /etc/nginx/sites-enabled
 Run Python app:
 
 ```bash
-gunicorn --workers 3 --bind unix:myproject.sock -m 777 wsgi:app
+gunicorn --workers 3 --bind unix:myproject.sock wsgi:app
 ```
 
 Start nginx server:
