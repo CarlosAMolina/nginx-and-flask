@@ -1,8 +1,18 @@
+## Table of contents
+
+- [Introduction](#introduction)
+- [Run](#run)
+  - [Localhost](#localhost)
+  - [VPS with HTTPs](#vps-with-https)
+- [References](#references)
+
 ## Introduction
 
 Project to learn how to run a Flask app in a nginx server.
 
-## Run localhost
+## Run
+
+### Localhost
 
 Create file: 
 
@@ -45,9 +55,32 @@ Start nginx server:
 sudo nginx
 ```
 
-Open in web browser:
+Open in  the web browser:
 
 <http://0.0.0.0:8081/>
+
+### VPS with HTTPs
+
+Warning. This is a quick way to run the app, but probably not recommended.
+
+Add to the site's configuration:
+
+```bash
+   location /test {
+        proxy_pass 'http://localhost:5000/';
+    }
+```
+
+Reload nginx and run the app:
+
+```bash
+python myproject.py 
+```
+
+Open in the web browser:
+
+<https://DOMAIN/test>
+
 
 ## References
 
